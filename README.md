@@ -24,15 +24,16 @@
 
 
 # 🧩 Challanges of the Process
-
+The overall challenge is to implement a digitized decision-supporting tool and the definition of possible asked dimensions for persons looking for a therapy.
   
 # 🎯 Goal and Vision
-
-
+The overall goal of the project is to optimize a person-psychtherapist-matching process by implementing a digitized, rule-based
+matching process. Both participants, persons looking for the right therapist and on the other side the therapist should benefit from the matching process.
+The vision is to offer persons looking for the right therapy a easy to use platform for best matches and confident suggestions by the process.
+In the end, patient and psychotherapist should benefit from a time-saving, digitized process.
 
 # 📦 AS-IS Process
-*  [As-Is BPMN Model – Order to Shipping]()
-
+* 
  
 
 ![As-Is Process]()
