@@ -138,5 +138,5 @@ The following technologies have been used and applied:
 |-------------------------|----------------------------------------------|
 | Camunda 7               | Modeling the business process                |
 | BPMN 2.0                | Used Modeling-Language                       |
-| Deepnote                | API-Gateways to send Mails                   | ![link]([LINK DEEPNOTE](https://deepnote.com/workspace/DHP25-244a274b-59d3-442f-b7ef-3d5d24503cee/project/chocolatexpress-fbdcce36-fd51-4cfb-8676-e6e544158098/notebook/cc5e3854092d45b89dd08990f5fce491?secondary-sidebar-autoopen=true&secondary-sidebar=agent))
+| Deepnote                | API-Gateways to send Mails                   | ![link][(https://deepnote.com/workspace/DHP25-244a274b-59d3-442f-b7ef-3d5d24503cee/project/chocolatexpress-fbdcce36-fd51-4cfb-8676-e6e544158098/notebook/cc5e3854092d45b89dd08990f5fce491?secondary-sidebar-autoopen=true&secondary-sidebar=agent)]
 | Deepnote                | ML-Model Training, Deployment                |
