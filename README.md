@@ -74,10 +74,6 @@ Links:
 | Module                    | Purpose                                        | Description |
 |-------------------------|----------------------------------------------|------------------|
 | Google Sheets           |Watch Rows |Triggers with each new order and starts Camunda Process once an order is entered via Google form
-| Google Sheets           |Search Rows           |Checks inventory based on Product ID|
-| Router                  |    Checks if stock is available or not         |Will direct to the corresponding route |
-| Update a Row            | Updates Order Status in Google Sheets  |Shows that the order is either with Dispatch or Procurement |
-| Gmail |Send Email       |Sends either a "thank you for your order" email or a notification that the item is currently out of stock and delivery will take longer as it will be re-ordered |
 | HTTP Module             | Camunda Integration | https://digibp.engine.martinlab.science/engine-rest/process-definition/key/Process_0ad1ggy/tenant-id/25DIGIBP29/start |
 
 **Example POST endpoint:**
