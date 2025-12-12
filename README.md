@@ -78,8 +78,6 @@ Links:
 
 **Example POST endpoint:**
 
-https://digibp.engine.martinlab.science/engine-rest/message
-
 ![Post Endpoint](ENDPOINT EXAMPLE)
 
 # Recap of the integrated Flow
@@ -102,10 +100,6 @@ https://digibp.engine.martinlab.science/engine-rest/message
 
 **Current Limitations**
 
-Currently, Buddy may face challenges with highly specific inquiries, such as incorrect order numbers, leading to response loops. As Buddy is still a test model and not yet live, this is acceptable within the project’s scope. 
-To mitigate the risk of misinformation, Buddy is designed with restricted pathways, ensuring that only valid paths are triggered and preventing inaccurate responses. Loosening those restrictions and adding more scenarios will make the chatbot easily scalable to cover additional services (e.g. delivery updates, FAQs and more) in the future.
-
-Future updates will focus on refining phrasing and expanding language capabilities. At the moment the chatbot operates in English only when workflows are triggered.
 
 # Process Improvements
 In our analysis of the original order-to-shipment process, we identified several key challenges: fragmented communication, manual data handling, inefficient follow-ups, and a lack of automation. These issues led to delays, errors, and inconsistent customer experiences. To address these pain points, we designed and implemented a digitalized and automated solution. Our improved process reduces manual workload, increases transparency, and speeds up response times, all while maintaining flexibility and human oversight where necessary.
