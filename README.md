@@ -104,10 +104,10 @@ The TO-BE process introduces automation and structured decision logic while main
 
 ### Modules Used
 
-| Module        | Purpose             | Description                                               |
-| ------------- | ------------------- | --------------------------------------------------------- |
-| Google Sheets | Watch Rows          | Triggers Camunda process when a new form entry is created |
-| HTTP Module   | Camunda Integration | Starts BPMN process via REST API                          |
+| Module                 | Purpose             | Description                                               |
+| -----------------------| ------------------- | --------------------------------------------------------- |
+| Camunda Generated Form       | Feature Input        | User Form to provide preferences|
+| HTTP Connector             | Deepnote Integration| Sends data to deepnote via REST-API with GET, POST gateways                      |
 
 **Camunda REST Endpoint**
 `/engine-rest/process-definition/key/Process_0ad1ggy/tenant-id/25DIGIBP29/start`
