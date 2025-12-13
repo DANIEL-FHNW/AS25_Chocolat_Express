@@ -100,17 +100,21 @@ The TO-BE process introduces automation and structured decision logic while main
 
 ---
 
-## 🧾 Camunda Forms & Integration
+## 🧾 Technologies
 
 ### Modules Used
 
 | Module                 | Purpose             | Description                                               |
 | -----------------------| ------------------- | --------------------------------------------------------- |
-| Camunda Generated Form       | Feature Input        | User Form to provide preferences|
+| Camunda Form       | Feature Input        | User Form to provide preferences|
 | HTTP Connector             | Deepnote Integration| Sends data to deepnote via REST-API with GET, POST gateways                      |
+ |Deepnote                  | API Gateways | Proiding API-Gateways for GET, POST-Routes for client and therpist |
 
 **Camunda REST Endpoint**
-`/engine-rest/process-definition/key/Process_0ad1ggy/tenant-id/25DIGIBP29/start`
+`/engine-rest/process-definition/key/Process_0ad1ggy/tenant-id/mi25chocolat/start`
+
+**Deepnote Notebook**
+`https://deepnote.com/workspace/DHP25-244a274b-59d3-442f-b7ef-3d5d24503cee/project/chocolatexpress-fbdcce36-fd51-4cfb-8676-e6e544158098/notebook/cc5e3854092d45b89dd08990f5fce491?secondary-sidebar-autoopen=true&secondary-sidebar=agent`
 
 ---
 
@@ -140,12 +144,10 @@ All patient- and therapist-related variables are normalized and mapped into disc
 
 | Variable              | Description                                | Encoding      |
 | --------------------- | ------------------------------------------ | ------------- |
-| `therapy_type`        | Required therapy (e.g. CBT, psychodynamic) | Enum → Int    |
-| `modality`            | Online / On-site / Hybrid                  | Enum → Int    |
-| `language`            | Preferred language                         | Enum → Int    |
+| `therapy_type`        | Required therapy (e.g. Depression, Anxiety, Couple) | Enum → Int    |
+| `modality`            | Online / On-site                | Enum → Int    |
 | `urgency`             | Clinical urgency                           | Ordinal (1–3) |
 | `availability_window` | Time flexibility                           | Ordinal (1–3) |
-| `contraindications`   | Exclusion criteria                         | Binary mask   |
 
 **Therapist Variables**
 
@@ -154,9 +156,7 @@ All patient- and therapist-related variables are normalized and mapped into disc
 | `therapist_id`        | Unique therapist identifier | Label     |
 | `specialization`      | Supported therapy types     | Multi-hot |
 | `modality_supported`  | Online / On-site            | Enum      |
-| `languages_supported` | Spoken languages            | Multi-hot |
 | `capacity`            | Free slots available        | Binary    |
-| `accepts_urgency`     | Emergency readiness         | Binary    |
 
 ---
 
@@ -167,20 +167,7 @@ All patient- and therapist-related variables are normalized and mapped into disc
    * Therapist capacity = available
    * Therapy type ∈ therapist specialization
    * Modality compatible
-   * Contraindications = false
 
-2. **Soft Constraints (Scoring)**
-
-Each remaining therapist receives a score:
-
-| Criterion                       | Weight |
-| ------------------------------- | ------ |
-| Language match                  | +3     |
-| Availability window match       | +2     |
-| Urgency compatibility           | +2     |
-| Modality preference exact match | +1     |
-
-Total score range: **0–8**
 
 ---
 
@@ -192,10 +179,7 @@ Total score range: **0–8**
 
 * therapy_type
 * modality
-* language
-* urgency
-* availability_window
-* contraindications
+
 
 **Output:**
 
@@ -224,10 +208,7 @@ Total score range: **0–8**
 
 ### Example Decision Rule (Simplified)
 
-| Therapy | Modality | Language | Capacity | Score | Therapy_ID |
-| ------- | -------- | -------- | -------- | ----- | ---------- |
-| CBT     | Online   | DE       | true     | 7     | T_023      |
-
+!!!!!!!
 ---
 
 ### Why Rule-Based (Now)
