@@ -130,23 +130,125 @@ The TO-BE process introduces automation and structured decision logic while main
 
 ---
 
-## 🧮 Decision Table
+## 🧮 Decision Model & Matching Logic
 
-The decision table implements the **therapeutic matching logic**, considering factors such as:
+### Input Variables
 
-* Therapy type
-* Modality (online / on-site)
-* Availability
-* Language
-* Specialization constraints
+All patient- and therapist-related variables are normalized and mapped into discrete categories to enable deterministic decision logic.
 
-![Overview Decision Table](DECISION TABLE IMAGE)
+**Patient Variables**
 
-### Current Limitations
+| Variable              | Description                                | Encoding      |
+| --------------------- | ------------------------------------------ | ------------- |
+| `therapy_type`        | Required therapy (e.g. CBT, psychodynamic) | Enum → Int    |
+| `modality`            | Online / On-site / Hybrid                  | Enum → Int    |
+| `language`            | Preferred language                         | Enum → Int    |
+| `urgency`             | Clinical urgency                           | Ordinal (1–3) |
+| `availability_window` | Time flexibility                           | Ordinal (1–3) |
+| `contraindications`   | Exclusion criteria                         | Binary mask   |
 
-* Static rule definitions
-* Manual updates of therapist availability
-* Limited scalability with increasing complexity
+**Therapist Variables**
+
+| Variable              | Description                 | Encoding  |
+| --------------------- | --------------------------- | --------- |
+| `therapist_id`        | Unique therapist identifier | Label     |
+| `specialization`      | Supported therapy types     | Multi-hot |
+| `modality_supported`  | Online / On-site            | Enum      |
+| `languages_supported` | Spoken languages            | Multi-hot |
+| `capacity`            | Free slots available        | Binary    |
+| `accepts_urgency`     | Emergency readiness         | Binary    |
+
+---
+
+### Matching Logic (Rule-Based)
+
+1. **Hard Constraints (Filters – MUST match)**
+
+   * Therapist capacity = available
+   * Therapy type ∈ therapist specialization
+   * Modality compatible
+   * Contraindications = false
+
+2. **Soft Constraints (Scoring)**
+
+Each remaining therapist receives a score:
+
+| Criterion                       | Weight |
+| ------------------------------- | ------ |
+| Language match                  | +3     |
+| Availability window match       | +2     |
+| Urgency compatibility           | +2     |
+| Modality preference exact match | +1     |
+
+Total score range: **0–8**
+
+---
+
+### Final Decision Table (DMN)
+
+**Decision Name:** `Select_Therapist`
+
+**Inputs:**
+
+* therapy_type
+* modality
+* language
+* urgency
+* availability_window
+* contraindications
+
+**Output:**
+
+* `Therapy_ID` (therapist_id)
+
+---
+
+### Hit Policy Selection
+
+**Chosen Hit Policy: `COLLECT (MAX)`**
+
+**Rationale:**
+
+* Multiple therapists may satisfy all hard constraints
+* Each rule returns `(therapist_id, score)`
+* `COLLECT (MAX)` selects the therapist with the **highest matching score**
+* Deterministic, explainable, and scalable
+
+**Tie-Break Strategy:**
+
+1. Highest availability
+2. Least recent assignment
+3. Random fallback (optional)
+
+---
+
+### Example Decision Rule (Simplified)
+
+| Therapy | Modality | Language | Capacity | Score | Therapy_ID |
+| ------- | -------- | -------- | -------- | ----- | ---------- |
+| CBT     | Online   | DE       | true     | 7     | T_023      |
+
+---
+
+### Why Rule-Based (Now)
+
+* Full transparency for stakeholders
+* Easy validation by domain experts
+* Legally and ethically explainable
+* Low data requirement
+
+---
+
+### Migration Path to ML
+
+Once sufficient historical matching data is available:
+
+* **Label (`Therapy_ID`)** becomes training target
+* **Features:** all encoded patient variables
+* **Models:** Logistic Regression → XGBoost
+* **Output:** Probability-ranked Top-3 therapists
+
+The DMN model can then act as a fallback or safety layer.
 
 ---
 
