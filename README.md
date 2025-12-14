@@ -1,4 +1,4 @@
-# Therapist Matcher / Find My Therapy
+# Therapist Matcher / Find My Therapy TEST
 
 **Automation of Patient–Therapist Matching**
 This project digitalizes and simplifies the process for patients seeking a fitting and available psychotherapist after receiving a prescription. By matching patients against professional criteria, availability, and individual needs, it reduces waiting times, increases transparency, and provides therapists with a clear digital interface to efficiently accept or decline new patients.
