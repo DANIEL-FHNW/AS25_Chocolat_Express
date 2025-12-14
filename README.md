@@ -168,18 +168,27 @@ The TO-BE process introduces automation and structured decision logic while main
 
 ## 9. 🧮 Decision Model & Matching Logic
 
+The matching system uses a multi-layered decision model that normalizes patient preferences and therapist attributes into discrete categories, enabling deterministic and transparent matching logic.
 
+### Overview
 
-### Migration Path to ML
+- **Input Variables**: Patient preferences (therapy setting, disease category, weekday, daytime, gender, waiting time)
+- **Normalization**: All variables are mapped to integer-based categories
+- **Decision Layers**: Multiple focused decisions produce intermediate variables
+- **Final Selection**: Rule-based decision table selects the most suitable therapist
+- **Hit Policy**: `COLLECT (MAX)` for deterministic, explainable results
 
-Once sufficient historical matching data is available:
+### Key Features
 
-- **Label (`Therapy_ID`)** becomes training target
-- **Features:** all encoded patient variables
-- **Models:** Logistic Regression → XGBoost
-- **Output:** Probability-ranked Top-3 therapists
+- Full transparency for stakeholders
+- Easy validation by domain experts
+- Legally and ethically explainable
+- Low data requirement
+- Migration path to ML models (Logistic Regression → XGBoost)
 
-The DMN model can then act as a fallback or safety layer.
+For detailed information about the decision model, matching logic, input/output variables, and decision layers, see:
+
+📄 **[Decision Table Documentation](Decision%20Table.md)**
 
 ---
 
