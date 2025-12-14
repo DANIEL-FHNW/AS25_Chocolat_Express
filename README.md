@@ -265,6 +265,6 @@ With increasing data availability, the rule-based decision table could be replac
 
 The system could generate a **Top-3 matching score** instead of a single result.
 
-![Logistic Regression Documentation](/deepnote/Logistic Regression Matcher.md)
+[Logistic Regression Documentation](--deepnote/Logistic Regression Matcher.md)
 
 
