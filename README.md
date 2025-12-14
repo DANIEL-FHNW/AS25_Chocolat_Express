@@ -258,12 +258,12 @@ The improved process significantly reduces delays, errors, and manual workload w
 
 ### Future Outlook
 
-With increasing data availability, the rule-based decision table could be replaced or augmented by **machine learning models**:
+With increasing data availability, the rule-based decision table could be replaced or augmented by **machine learning model**:
 
 - Logistic Regression (transparent, small data friendly)
-- XGBoost (higher performance for complex patterns)
 
-The system could generate a **Top-3 matching score** instead of a single result.
+The system could generate a **Top-3 matching score** instead of a single result: note that the Deepnote-code is only running in deepnote and is not connected to a possible future process. You´ll see
+matching results directly in the notebook terminal.
 
 [Logistic Regression Documentation](deepnote/Logistic%20Regression%20Matcher.md)
 
