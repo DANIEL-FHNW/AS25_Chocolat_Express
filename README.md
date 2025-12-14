@@ -151,6 +151,8 @@ All patient- and therapist-related variables are normalized and mapped into disc
 | gender           | Preferred therapist gender: female, male, non-binary          | Enum → Int (genderDecision 1–3)             |
 | waiting_time     | Accepted waiting time: 1_week–4_weeks                         | Ordinal → Int (waitingTimeDecision −1 to 2) |
 
+### Output Variable
+
 **Therapist Variables**
 
 | Output Variable | Description                        |
