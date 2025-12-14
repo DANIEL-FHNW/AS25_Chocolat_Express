@@ -222,7 +222,7 @@ The matching system uses a multi-layered decision model that normalizes patient 
 
 For detailed information about the decision model, matching logic, input/output variables, and decision layers, see:
 
-📄 **[Decision Table Documentation](Decision%20Table.md)**
+📄 **[Decision Table Documentation](Appendix_README/Decision Table.md)**
 
 ---
 
