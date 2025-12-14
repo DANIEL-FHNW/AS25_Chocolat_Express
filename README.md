@@ -96,7 +96,7 @@ To provide patients with an easy-to-use platform delivering confident and transp
 
 The current (AS-IS) process is largely manual and fragmented. Patients typically contact multiple therapists individually, often without knowing availability or specialization fit in advance.
 
-![As-Is Process](IMAGE_BPMN_OF_CURRENT_PROCESS)
+![As-Is Process](Appendix_README/AS-IS-Process.png)
 
 ### Roles Involved
 
