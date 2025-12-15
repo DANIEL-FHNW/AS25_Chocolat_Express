@@ -82,7 +82,6 @@ To provide patients with an easy-to-use platform delivering confident and transp
 | Camunda 7    | Business process orchestration       |
 | BPMN 2.0     | Process modeling language            |
 | DMN 1.3      | Decision modeling notation           |
-| Google Forms | Patient data intake                  |
 | Deepnote     | API integration & ML experimentation |
 | Flask        | REST API server                      |
 | Python       | Backend processing & ML model        |
